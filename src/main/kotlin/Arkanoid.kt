@@ -6,7 +6,7 @@ class Arkanoid(val width: Int, val height: Int) {
     private val stand: Stand = Stand(10.0, 30.0)
     private var isGameOver = false
 
-    fun draw(canvas: Canvas) {
+    private fun draw(canvas: Canvas) {
         drawBorders(canvas)
         bricks.forEach { it.draw(canvas) }
         ball.draw(canvas)
@@ -35,16 +35,13 @@ class Arkanoid(val width: Int, val height: Int) {
         keyboardObserver.start()
 
         while (!isGameOver) {
-            // "наблюдатель" содержит события о нажатии клавиш?
-
-            // "наблюдатель" содержит события о нажатии клавиш?
             if (keyboardObserver.hasKeyEvents()) {
                 val event = keyboardObserver.eventFromTop
-
-                // Если "стрелка влево" - сдвинуть фигурку влево
-                if (event.keyCode == KeyEvent.VK_LEFT) stand.moveLeft()
-                else if (event.keyCode == KeyEvent.VK_RIGHT) stand.moveRight()
-                else if (event.keyCode == KeyEvent.VK_SPACE) ball.start()
+                when (event.keyCode) {
+                    KeyEvent.VK_LEFT -> stand.moveLeft()
+                    KeyEvent.VK_RIGHT -> stand.moveRight()
+                    KeyEvent.VK_SPACE -> ball.start()
+                }
             }
 
             move()
@@ -54,12 +51,12 @@ class Arkanoid(val width: Int, val height: Int) {
             canvas.clear()
             draw(canvas)
             canvas.print()
-            Thread.sleep(300)
+            Thread.sleep(50)
         }
         println("Game over!")
     }
 
-    fun move() {
+    private fun move() {
         ball.move()
         stand.move()
     }
@@ -81,13 +78,7 @@ class Arkanoid(val width: Int, val height: Int) {
         }
     }
 
-    fun checkEndGame() {
+    private fun checkEndGame() {
         if (ball.y > height && ball.dy > 0) isGameOver = true
     }
-}
-
-val game: Arkanoid = Arkanoid(20, 30)
-fun main() {
-    val game = Arkanoid(20, 30)
-    game.run()
 }
