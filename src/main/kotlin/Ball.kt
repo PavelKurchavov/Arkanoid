@@ -1,13 +1,13 @@
 import kotlin.math.cos
 import kotlin.math.sin
 
-class Ball(x: Double, y: Double, var speed: Double, private var direction: Double) : BaseObject(x, y, 1.0) {
+class Ball(x: Double, y: Double, private var speed: Double, private var direction: Double) : BaseObject(x, y, 1.0) {
     private var dx: Double = 0.0
     var dy: Double = 0.0
     private var isFrozen = true
 
 
-    fun setDirection(direction: Double) {
+    fun setDirection(direction: Double) { TODO("Переписать метод в свойство")
         this.direction = direction
         val angle: Double = Math.toRadians(direction)
         dx = cos(angle) * speed
@@ -24,7 +24,7 @@ class Ball(x: Double, y: Double, var speed: Double, private var direction: Doubl
         checkRebound(game.width, game.height + 5)
     }
 
-    private fun checkRebound(maxX: Int, maxY: Int) {
+    private fun checkRebound(maxX: Int, maxY: Int) { TODO("Убрать миллион ифов")
         if (x < 1) {
             x = 2 - x
             dx = -dx

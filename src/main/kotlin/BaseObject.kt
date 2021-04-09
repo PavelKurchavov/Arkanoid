@@ -5,7 +5,7 @@ abstract class BaseObject(internal var x: Double, internal var y: Double, intern
     abstract fun draw(canvas: Canvas)
     open fun move() {}
 
-    fun checkBorders(minX: Double, maxX: Double, minY: Double, maxY: Double) {
+    fun checkBorders(minX: Double, maxX: Double, minY: Double, maxY: Double) { TODO("remove million ifs")
         if (x < minX) x = minX
         if (x > maxX) x = maxX
         if (y < minY) y = minY
