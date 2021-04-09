@@ -2,7 +2,7 @@ import java.awt.event.KeyEvent
 
 class Arkanoid(val width: Int, val height: Int) {
     private val bricks: ArrayList<Brick> = ArrayList()
-    private val ball: Ball = Ball(10.0, 29.0, 2.0, 95.0)
+    private val ball: Ball = Ball(10.0, 29.0, 2.0)
     private val stand: Stand = Stand(10.0, 30.0)
     private var isGameOver = false
 
@@ -65,7 +65,7 @@ class Arkanoid(val width: Int, val height: Int) {
         for(brick in ArrayList<Brick>(bricks)) {
             if(ball.isIntersec(brick)) {
                 val angle = Math.random() * 360
-                ball.setDirection(angle)
+                ball.direction = angle
                 bricks.remove(brick)
             }
         }
@@ -74,7 +74,7 @@ class Arkanoid(val width: Int, val height: Int) {
     private fun checkStandBump() {
         if (ball.isIntersec(stand)) {
             val angle = 90 + 20 * (Math.random() - 0.5)
-            ball.setDirection(angle)
+            ball.direction = angle
         }
     }
 
