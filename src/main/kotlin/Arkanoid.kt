@@ -15,7 +15,7 @@ class Arkanoid(val width: Int, val height: Int) {
 
     private fun drawBorders(canvas: Canvas) {
         for (i in 0 until width + 2) {
-            for (j in 0 until height + 2) canvas.setPoint(i.toDouble(), j.toDouble(), '.')
+            for (j in 0 until height + 2) canvas.setPoint(i.toDouble(), j.toDouble(), ' ')
         }
 
         for (i in 0 until width + 2) {
