@@ -1,7 +1,7 @@
 import kotlin.math.round
 
 class Canvas(private val width: Int, private val height: Int) {
-    var matrix: Array<Array<Char>> = Array(height + 2) { Array(width + 2) {'.'} }
+    private var matrix: Array<Array<Char>> = Array(height + 2) { Array(width + 2) {'.'} }
 
     fun clear() {
         matrix = Array(height + 2) { Array(width + 2) {'.'} }
