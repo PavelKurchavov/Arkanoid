@@ -51,7 +51,7 @@ class Arkanoid(val width: Int, val height: Int) {
             canvas.clear()
             draw(canvas)
             canvas.print()
-            Thread.sleep(50)
+            Thread.sleep(500)
         }
         println("Game over!")
     }

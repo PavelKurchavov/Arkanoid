@@ -26,8 +26,8 @@ class Canvas(private val width: Int, private val height: Int) {
     fun print() {
         println()
 
-        for (i in 0 until height + 2) {
-            for (j in 0 until width + 2) {
+        for (i in matrix.indices) {
+            for (j in matrix[i].indices) {
                 print(" ")
                 print(matrix[i][j])
                 print(" ")
